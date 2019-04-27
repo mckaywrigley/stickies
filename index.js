@@ -3,10 +3,13 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 
 // Initialize
 const app = express();
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // DB Config
 const db = require("./config/keys").mongoURI;
@@ -21,7 +24,6 @@ mongoose
 const stickyRoutes = require("./routes/stickyRoutes");
 
 // Middleware
-app.use(express.json());
 
 // Use Routes
 app.use("/api/stickies", stickyRoutes);

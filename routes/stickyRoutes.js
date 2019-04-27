@@ -39,7 +39,7 @@ router.get("/:id", (req, res) => {
 // Create---
 router.post("/", (req, res) => {
   const { title, description } = req.body;
-  new Sticky(title, description)
+  new Sticky(req.body)
     .save()
     .then(sticky => {
       return res.status(201).json(sticky);
@@ -65,7 +65,7 @@ router.delete("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   const { id } = req.params;
   const { title, description } = req.body;
-  Sticky.findByIdAndUpdate(id, (title, description))
+  Sticky.findByIdAndUpdate(id, req.body)
     .then(sticky => {
       return res.status(200).json(sticky);
     })
