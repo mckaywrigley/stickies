@@ -27,7 +27,7 @@ app.use(express.json());
 app.use("/api/stickies", stickyRoutes);
 
 // PORT
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 5000;
 
 // Run Server
 app.listen(port, () => {

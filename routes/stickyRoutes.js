@@ -52,6 +52,13 @@ router.post("/", (req, res) => {
 // Delete---
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
+  Sticky.findByIdAndDelete(id)
+    .then(sticky => {
+      return status(200).json(sticky);
+    })
+    .catch(err => {
+      return status(404).json({ error: "Sticky could not be deleted." });
+    });
 });
 
 // Update---
