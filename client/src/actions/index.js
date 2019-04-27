@@ -11,6 +11,7 @@ export const getStickies = id => dispatch => {
         type: GET_STICKIES,
         payload: res.data
       });
+      console.log(res);
     })
     .catch(err => console.log(err));
 };
