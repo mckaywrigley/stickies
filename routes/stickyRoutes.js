@@ -42,10 +42,10 @@ router.post("/", (req, res) => {
   new Sticky(title, description)
     .save()
     .then(sticky => {
-      return status(201).json(sticky);
+      return res.status(201).json(sticky);
     })
     .catch(err => {
-      return status(400).json({ error: "Sticky could not be created." });
+      return res.status(400).json({ error: "Sticky could not be created." });
     });
 });
 
@@ -54,14 +54,25 @@ router.delete("/:id", (req, res) => {
   const { id } = req.params;
   Sticky.findByIdAndDelete(id)
     .then(sticky => {
-      return status(200).json(sticky);
+      return res.status(200).json(sticky);
     })
     .catch(err => {
-      return status(404).json({ error: "Sticky could not be deleted." });
+      return res.status(404).json({ error: "Sticky could not be deleted." });
     });
 });
 
 // Update---
+router.put("/:id", (req, res) => {
+  const { id } = req.params;
+  const { title, description } = req.body;
+  Sticky.findByIdAndUpdate(id, (title, description))
+    .then(sticky => {
+      return res.status(200).json(sticky);
+    })
+    .catch(err => {
+      return res.status(400).json({ error: "Sticky could not be updated." });
+    });
+});
 
 // Export
 module.exports = router;
