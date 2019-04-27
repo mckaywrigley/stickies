@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Sticky from "./Sticky";
 import { connect } from "react-redux";
 import { getStickies } from "../actions";
+import AddSticky from "./AddSticky";
 
 class Stickies extends Component {
   constructor() {
@@ -18,6 +19,7 @@ class Stickies extends Component {
   render() {
     return (
       <div>
+        <AddSticky />
         {this.props.stickies.stickies.map(sticky => {
           return (
             <div key={sticky._id}>

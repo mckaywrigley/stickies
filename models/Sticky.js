@@ -7,12 +7,10 @@ const Schema = mongoose.Schema;
 // Create Schema
 const StickySchema = new Schema({
   title: {
-    type: String,
-    required: true
+    type: String
   },
   description: {
-    type: String,
-    required: true
+    type: String
   }
 });
 

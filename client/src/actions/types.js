@@ -1,1 +1,2 @@
 export const GET_STICKIES = "GET_STICKIES";
+export const CREATE_STICKY = "CREATE_STICKY";
