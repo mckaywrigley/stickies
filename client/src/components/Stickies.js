@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Sticky from "./Sticky";
 
 class Stickies extends Component {
   render() {

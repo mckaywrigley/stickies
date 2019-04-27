@@ -1,0 +1,27 @@
+{
+  "name": "stickies-app",
+  "version": "1.0.0",
+  "description": "Sticky note app.",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "server": "nodemon index.js",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mckaywrigley/stickies.git"
+  },
+  "author": "Mckay Wrigley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mckaywrigley/stickies/issues"
+  },
+  "homepage": "https://github.com/mckaywrigley/stickies#readme"
+}
