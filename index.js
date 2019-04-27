@@ -1,10 +1,20 @@
 // Imports
 const express = require("express");
 const cors = require("cors");
+const mongoose = require("mongoose");
 
 // Initialize
 const app = express();
 app.use(cors());
+
+// DB Config
+const db = require("./config/keys").mongoURI;
+
+// Connect to MongoDB
+mongoose
+  .connect(db, { useNewUrlParser: true })
+  .then(() => console.log("MongoDB connected."))
+  .catch(err => console.log(err));
 
 // Routes
 const stickyRoutes = require("./routes/stickyRoutes");
@@ -15,7 +25,10 @@ app.use(express.json());
 // Use Routes
 app.use("/api/stickies", stickyRoutes);
 
+// PORT
+const port = process.env.PORT || 4000;
+
 // Run Server
-app.listen(4000, () => {
+app.listen(port, () => {
   console.log("Server running.");
 });

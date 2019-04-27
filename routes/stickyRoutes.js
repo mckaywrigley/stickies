@@ -1,10 +1,11 @@
-// Import Express
+// Imports
 const express = require("express");
 
-// Import Router
+// Initialize Router
 const router = express.Router();
 
 // Sticky Model
+const Sticky = require("../models/Sticky");
 
 // Middleware
 
