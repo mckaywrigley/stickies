@@ -23,7 +23,11 @@ class Stickies extends Component {
         {this.props.stickies.stickies.map(sticky => {
           return (
             <div key={sticky._id}>
-              <Sticky title={sticky.title} description={sticky.description} />
+              <Sticky
+                title={sticky.title}
+                description={sticky.description}
+                id={sticky._id}
+              />
             </div>
           );
         })}

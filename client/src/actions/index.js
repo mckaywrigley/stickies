@@ -21,3 +21,10 @@ export const createSticky = sticky => dispatch => {
     .then(res => console.log(res))
     .catch(err => console.log(err.response.data.error));
 };
+
+export const updateSticky = (id, sticky) => dispatch => {
+  axios
+    .put(`${url}/api/stickies/${id}`, sticky)
+    .then(res => console.log(res))
+    .catch(err => console.log(err.response.data.error));
+};
