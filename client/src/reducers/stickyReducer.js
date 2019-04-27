@@ -1,4 +1,4 @@
-import { GET_STICKIES } from "../actions/types";
+import { GET_STICKIES, CHANGE_STICKY } from "../actions/types";
 
 const initialState = {
   stickies: []
@@ -10,6 +10,10 @@ export default function(state = initialState, action) {
       return {
         ...state,
         stickies: action.payload
+      };
+    case CHANGE_STICKY:
+      return {
+        ...state
       };
     default:
       return state;

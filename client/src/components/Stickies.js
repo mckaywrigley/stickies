@@ -16,7 +16,22 @@ class Stickies extends Component {
     this.props.getStickies();
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.stickies.stickies === this.props.stickies.stickies) {
+      this.props.getStickies();
+    }
+  }
+
   render() {
+    {
+      if (this.props.stickies.stickies.length === 0) {
+        return (
+          <div>
+            <p>Loading...</p>
+          </div>
+        );
+      }
+    }
     return (
       <div>
         <AddSticky />

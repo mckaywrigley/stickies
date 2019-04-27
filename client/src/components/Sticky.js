@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { updateSticky } from "../actions";
+import { updateSticky, deleteSticky, getStickies } from "../actions";
 
 import {
   Card,
@@ -26,7 +26,6 @@ class Sticky extends Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-    console.log(this.state);
   };
 
   handleSubmit = e => {
@@ -64,6 +63,9 @@ class Sticky extends Component {
               </InputGroup>
             </CardText>
             <Button onClick={this.handleSubmit}>Save</Button>
+            <Button onClick={e => this.props.deleteSticky(this.props.id)}>
+              Delete
+            </Button>
           </CardBody>
         </Card>
       </div>
@@ -77,5 +79,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { updateSticky }
+  { updateSticky, deleteSticky, getStickies }
 )(Sticky);
