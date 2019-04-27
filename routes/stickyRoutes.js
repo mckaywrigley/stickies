@@ -37,6 +37,17 @@ router.get("/:id", (req, res) => {
 });
 
 // Create---
+router.post("/", (req, res) => {
+  const { title, description } = req.body;
+  new Sticky(title, description)
+    .save()
+    .then(sticky => {
+      return status(201).json(sticky);
+    })
+    .catch(err => {
+      return status(400).json({ error: "Sticky could not be created." });
+    });
+});
 
 // Delete---
 
